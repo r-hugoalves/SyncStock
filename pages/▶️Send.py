@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-import Storage
+import time
 
 st.set_page_config(
     page_title="SyncStock",
@@ -49,8 +49,6 @@ with st.container():
 
             enviar_info = st.button("Atualizar estoque")
             if enviar_info:
-                if("Tem avaria?" == False):
-                      Storage.saida = Storage.saida-1
-                else:
-                     Storage.avaria = Storage.avaria+1
-                     Storage.saida = Storage.saida-1
+               with st.spinner("Enviando informações..."):
+                    time.sleep(2)
+                    st.success("Informações enviadas!")
