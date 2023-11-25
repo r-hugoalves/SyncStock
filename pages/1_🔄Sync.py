@@ -29,7 +29,7 @@ with st.container():
             column_config={
                 "produto": "Produto",
                 "quantidade": "Quantidade",
-                "fardo": "Fardo",
+                "fardo": "Fardo mais antigo",
                 "localizacao": "Localização"
             },
             use_container_width=True,

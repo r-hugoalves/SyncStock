@@ -29,28 +29,28 @@ with st.container():
             label="Estoque Atual",
             value=(products["quantidade_boa"].sum() - avaria - saida)
         )
-        fig_boa = px.pie(
+    with col_002:
+        st.metric(
+            label="Avaria",
+            value=(products["quantidade_ruim"].sum() + avaria)
+        )
+        
+    fig_boa = px.pie(
             products,
             names="nome",
             values="quantidade_boa",
             title="Quantidade Boa por Produto",
             hole=.4
         )
-        st.plotly_chart(fig_boa)
-
-    with col_002:
-        st.metric(
-            label="Avaria",
-            value=(products["quantidade_ruim"].sum() + avaria)
-        )
-        fig_ruim = px.pie(
+    st.plotly_chart(fig_boa)
+    fig_ruim = px.pie(
             products,
             names="nome",
             values="quantidade_ruim",
             title="Avaria por Produto",
             hole=.5
         )
-        st.plotly_chart(fig_ruim)
+    st.plotly_chart(fig_ruim)
 
 #DASHBOARD POR PRODUTO
 st.divider()
